@@ -46,6 +46,7 @@ Gem::Specification.new do |s|
      "test/templates/repo.rhtml",
      "test/test_helper.rb",
      "test/toto_test.rb",
+     "toto-haml.gemspec",
      "toto.gemspec"
   ]
   s.homepage = %q{http://github.com/adkron/toto}
