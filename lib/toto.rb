@@ -1,6 +1,6 @@
 require 'yaml'
 require 'time'
-require 'erb'
+require 'haml'
 require 'rack'
 require 'digest'
 require 'open-uri'
@@ -30,7 +30,7 @@ module Toto
   module Template
     def to_html page, &blk
       path = ([:layout, :repo].include?(page) ? Paths[:templates] : Paths[:pages])
-      ERB.new(File.read("#{path}/#{page}.rhtml")).result(binding)
+      return Haml::Engine.new(File.read("#{path}/#{page}.haml")).render(binding)
     end
 
     def markdown text
@@ -275,17 +275,17 @@ module Toto
 
   class Config < Hash
     Defaults = {
-      :author => ENV['USER'],                             # blog author
-      :title => Dir.pwd.split('/').last,                  # site title
-      :root => "index",                                   # site index
+      :author => ENV['USER'],                               # blog author
+      :title => Dir.pwd.split('/').last,                    # site title
+      :root => "index",                                     # site index
       :url => "http://127.0.0.1",
-      :date => lambda {|now| now.strftime("%d/%m/%Y") },  # date function
-      :markdown => :smart,                                # use markdown
-      :disqus => false,                                   # disqus name
-      :summary => {:max => 150, :delim => /~\n/},         # length of summary and delimiter
-      :ext => 'txt',                                      # extension for articles
-      :cache => 28800,                                    # cache duration (seconds)
-      :github => {:user => "", :repos => [], :ext => 'md'}# Github username and list of repos
+      :date => lambda {|now| now.strftime("%d/%m/%Y") },    # date function
+      :markdown => :smart,                                  # use markdown
+      :disqus => false,                                     # disqus name
+      :summary => {:max => 150, :delim => /~\n/},           # length of summary and delimiter
+      :ext => 'txt',                                        # extension for articles
+      :cache => 28800,                                      # cache duration (seconds)
+      :github => {:user => "", :repos => [], :ext => 'md'}  # Github username and list of repos
     }
     def initialize obj
       self.update Defaults
