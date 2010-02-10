@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/ext/ext.rb",
-     "lib/toto.rb",
+     "lib/toto-haml.rb",
      "test/articles/1900-05-17-the-wonderful-wizard-of-oz.txt",
      "test/articles/2001-01-01-two-thousand-and-one.txt",
      "test/articles/2009-04-01-tilt-factor.txt",

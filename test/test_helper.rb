@@ -5,7 +5,7 @@ require 'riot'
 $:.unshift File.dirname(__FILE__)
 $:.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
-require 'toto'
+require 'toto-haml'
 
 module Toto
   class IncludesHTMLMacro < Riot::AssertionMacro
