@@ -4,16 +4,17 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "toto"
+    gem.name = "toto-haml"
     gem.summary = %Q{the tiniest blog-engine in Oz}
     gem.description = %Q{the tiniest blog-engine in Oz.}
-    gem.email = "self@cloudhead.net"
-    gem.homepage = "http://github.com/cloudhead/toto"
-    gem.authors = ["cloudhead"]
+    gem.email = "amos.l.king@gmail.com"
+    gem.homepage = "http://github.com/adkron/toto"
+    gem.authors = ["cloudhead", "Amos King"]
     gem.add_development_dependency "riot"
     gem.add_dependency "builder"
     gem.add_dependency "rack"
     gem.add_dependency "rdiscount"
+    gem.add_dependency "haml"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
